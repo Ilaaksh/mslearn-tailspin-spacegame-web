@@ -54,7 +54,7 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
-    - task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
   inputs:
     command: 'pack'
@@ -65,7 +65,7 @@ steps:
     minorVersion: '0'
     patchVersion: '0'
   
-  - task: NuGetCommand@2
+- task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
     command: push
